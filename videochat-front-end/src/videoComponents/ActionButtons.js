@@ -43,7 +43,7 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
     });
     // When using empty [], you will get a warming saying,
     // React Hook useEffect has a missing dependency: 'dispatch'
-    // Either include it or remove the dependency array
+    // Either include it or remove the dependency array //
   });
 
   return (
@@ -79,8 +79,7 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
       </div>
 
       <div className='center justify-center text-end col-2'>
-        {/* <HangupButton smallFeedEl={smallFeedEl} largeFeedEl={largeFeedEl} /> */}
-        <HangupButton />
+        <HangupButton smallFeedEl={smallFeedEl} largeFeedEl={largeFeedEl} />
       </div>
     </div>
   );

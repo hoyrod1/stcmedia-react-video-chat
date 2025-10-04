@@ -228,7 +228,7 @@ const ProMainVideoPage = () => {
         )}
         <ChatWindow />
       </div>
-      <ActionButtons smallFeedEl={smallFeedEl} />
+      <ActionButtons smallFeedEl={smallFeedEl} largeFeedEl={largeFeedEl} />
     </div>
   );
 };
