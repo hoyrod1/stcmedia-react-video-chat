@@ -65,10 +65,25 @@ const VideoButton = ({ smallFeedEl }) => {
     // 5. Update stream in localStream
     dispatch(addStream("localStream", stream));
     // 6. We need to add the tracks
-    const tracks = stream.getVideoTracks();
+    const [videoTrack] = stream.getVideoTracks();
+    console.log(videoTrack);
     // Come back to this later
     // If we stop the old video/audio track and add new video/audio track
     // We have to renegotiate
+    for (const s in streams) {
+      if (s !== "locaStream") {
+        const senders = streams[s].peerConection.getSenders();
+        console.log(senders);
+        const sender = senders.find((s) => {
+          if (s.track) {
+            return s.track.kind === videoTrack.kind;
+          } else {
+            return false;
+          }
+        });
+        sender.replaceTrack(videoTrack);
+      }
+    }
   };
   //========================================================//
 

@@ -81,7 +81,7 @@ const AudioButton = (smallFeedEl) => {
     // 1. We need to get the deviceId
     const deviceId = e.target.value.slice(5);
     const audioType = e.target.value.slice(0, 5);
-    console.log(e.target.value);
+    // console.log(e.target.value);
     // console.log(audioType);
     if (audioType === "ouput") {
       const audioType = e.target.value.slice(0, 5);
@@ -117,10 +117,24 @@ const AudioButton = (smallFeedEl) => {
       // 4. Update stream in localStream
       dispatch(addStream("localStream", stream));
       // 5. We need to add/replace the tracks
-      const tracks = stream.getAudioTracks();
+      const [audioTrack] = stream.getAudioTracks();
       // Come back to this later
       // If we stop the old video/audio track and add new video/audio track
       // We have to renegotiate
+      for (const s in streams) {
+        if (s !== "locaStream") {
+          const senders = streams[s].peerConection.getSenders();
+          console.log(senders);
+          const sender = senders.find((s) => {
+            if (s.track) {
+              return s.track.kind === audioTrack.kind;
+            } else {
+              return false;
+            }
+          });
+          sender.replaceTrack(audioTrack);
+        }
+      }
     }
   };
   //===========================================================//
