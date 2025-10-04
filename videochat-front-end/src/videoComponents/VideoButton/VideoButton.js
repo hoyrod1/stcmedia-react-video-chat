@@ -31,7 +31,7 @@ const VideoButton = ({ smallFeedEl }) => {
       }
     };
     getDevicesAsync();
-  }, [caretOpen]);
+  }, [caretOpen]); //
   //========================================================//
 
   //========================================================//
@@ -86,9 +86,9 @@ const VideoButton = ({ smallFeedEl }) => {
       });
     } else if (callStatus.video === "disabled") {
       // 2. CHECK IF THE VIDEO IS DISABLED. IF SO ENABLE IT
-      // Update redux callStatus
+      // First update redux callStatus
       dispatch(updateCallStatus("video", "enabled"));
-      // Set the stream to disable
+      // Then set the stream to disable
       const tracks = streams.localStream.stream.getVideoTracks();
       tracks.forEach((track) => {
         track.enabled = true;
@@ -147,4 +147,4 @@ const VideoButton = ({ smallFeedEl }) => {
   //========================================================//
 };
 
-export default VideoButton;
+export default VideoButton; //

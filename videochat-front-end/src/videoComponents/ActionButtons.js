@@ -9,7 +9,7 @@ import AudioButton from "./AudioButton/AudioButtton";
 
 const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
   const callStatus = useSelector((state) => state.callStatus);
-  // const callStatus = useSelector(state=>state.callStatus);
+  // const callStatus = useSelector(state=>state.callStatus); //
   const menuButtons = useRef(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const ActionButtons = ({ openCloseChat, smallFeedEl, largeFeedEl }) => {
         timer = setTimeout(() => {
           menuButtons.current.classList.add("hidden");
           // console.log("no movement for 4sec. Hiding")
-        }, 4000);
+        }, 3000);
       }
     };
 

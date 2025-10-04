@@ -8,7 +8,7 @@ const socketConnection = (jwt) => {
     return socket;
   } else {
     // Else connect
-    const socket = io.connect("https://localhost:9000", {
+    socket = io.connect("https://localhost:9000", {
       auth: {
         jwt,
       },

@@ -15,7 +15,7 @@ const ProDashboard = () => {
   const [apptInfo, setApptInfo] = useState([]);
   const dispatch = useDispatch();
   //------------------------------------------------------------------------//
-
+  // https://localhost:3000/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3ODAxMTI3fQ.f9rI7xD3EudgecpDwD5xqSOg3UFKikKhQuelXiZnSxo
   //------------------------------------------------------------------------//
   useEffect(() => {
     // "get" THE "token" VARIABLE FROM THE QUERY STRING
@@ -23,14 +23,15 @@ const ProDashboard = () => {
     // console.log(token);
     const socket = socketConnection(token);
     // console.log(socket);
-    proSocketListeners(socket, setApptInfo, dispatch);
+    proSocketListeners.proDashboardSocketListeners(socket, setApptInfo, dispatch);
   }, []);
   //------------------------------------------------------------------------//
-
+  // console.log(apptInfo);
   //------------------------------------------------------------------------//
   const joinCall = (appt) => {
-    // console.log(appt);
+    console.log(appt);
     const token = searchParams.get("token");
+    // console.log(token);
     // Navigate to /join-video-pro
     navigate(
       `/join-video-pro?token=${token}&uuid=${appt.uuid}&client=${appt.clientName}`
@@ -84,6 +85,7 @@ const ProDashboard = () => {
               <div className='col-6'>
                 <div className='dash-box clients-board blue-bg'>
                   <h4>Coming Appointments</h4>
+                  {/*==============================================================*/}
                   {apptInfo.map((a) => (
                     <div key={a.uuid}>
                       <li className='client'>
@@ -105,6 +107,7 @@ const ProDashboard = () => {
                       )}
                     </div>
                   ))}
+                  {/*==============================================================*/}
                 </div>
               </div>
             </div>

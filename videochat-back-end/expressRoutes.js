@@ -5,14 +5,44 @@ const app = require("./server").app;
 //--------------------------------------------------------------------//
 
 //--------------------------------------------------------------------//
-const professionalAppointments = require("./professionalAppointments");
-//--------------------------------------------------------------------//
-
-//--------------------------------------------------------------------//
 // require (JWT) Json Web Token
 const jwt = require("jsonwebtoken");
 const secretLink = "ihadhdfH283JWT";
 //--------------------------------------------------------------------//
+
+//--------------------------------------------------------------------//
+// This generate unique keys for items for database entries
+// like session IDs, or any data requiring a unique label
+const { v4: uuidv4 } = require("uuid");
+//--------------------------------------------------------------------//
+
+//--------------------------------------------------------------------//
+const professionalAppointments = require("./professionalAppointments");
+//--------------------------------------------------------------------//
+//normally this would be persistent data... db, api, file, etc.
+// const professionalAppointments = [
+//   {
+//     professionalsFullName: "Rodney St. Cloud",
+//     apptDate: Date.now() + 70000000,
+//     uuid: 1,
+//     clientName: "Jim Jones",
+//   },
+//   {
+//     professionalsFullName: "Rodney St. Cloud",
+//     apptDate: Date.now() + 44400000,
+//     uuid: 2, // uuid:uuidv4(),
+//     clientName: "Akash Patel",
+//   },
+//   {
+//     professionalsFullName: "Rodney St. Cloud",
+//     apptDate: Date.now() + 354300000,
+//     uuid: 3, //uuid:uuidv4(),
+//     clientName: "Mike Williams",
+//   },
+// ];
+// https://localhost:3000/join-video?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3Mjk0Nzc0fQ.rpUmXU5h0O9YTswusdSlFMcP40AZDlK8FornMnO4Zsc
+
+// https://localhost:3000/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3Njk4NjYyfQ.Qs04C9rMBHWQSGhsAsY94UU2LhurIvd0xTcbtAXWX3U
 
 //--------------------------------------------------------------------//
 app.set("professionalAppointments", professionalAppointments);
@@ -21,7 +51,7 @@ app.set("professionalAppointments", professionalAppointments);
 //====================================================================//
 //--------------------------------------------------------------------//
 // This user route will be for CLIENT 1 to make a "offer"
-// Calender/scheduling  APP will email this link to CLIENT 2
+// Calender/scheduling APP will email this link to CLIENT 2
 app.get("/user-link", (req, res) => {
   // const uuid = uuidv4(); //This represents a unique key from a database
   // personal data for the end-users with the appointment //

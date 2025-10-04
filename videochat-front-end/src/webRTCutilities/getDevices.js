@@ -21,4 +21,4 @@ const getDevices = () => {
   });
 };
 
-export default getDevices;
+export default getDevices; //

@@ -7,4 +7,4 @@ const rootReducer = combineReducers({
   streams: streamReducer,
 });
 
-export default rootReducer; //
+export default rootReducer;

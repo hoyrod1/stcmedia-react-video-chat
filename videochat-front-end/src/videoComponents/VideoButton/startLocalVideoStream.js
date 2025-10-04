@@ -19,9 +19,9 @@ const startLocalVideoStream = (streams, dispatch) => {
       // Update redux callStatus in callStatusReducer.js file
       dispatch(updateCallStatus("video", "enabled"));
     }
-    // console.log(`This ${s}, equals localStream`);
+    // console.log(`This ${s}, equals localStream`); //
     // console.log(`This ${streams[s]}, equals localStream`);
   }
 };
 
-export default startLocalVideoStream;
+export default startLocalVideoStream; //
