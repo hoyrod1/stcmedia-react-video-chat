@@ -122,9 +122,8 @@ const AudioButton = (smallFeedEl) => {
       // If we stop the old video/audio track and add new video/audio track
       // We have to renegotiate
       for (const s in streams) {
-        if (s !== "locaStream") {
-          const senders = streams[s].peerConection.getSenders();
-          console.log(senders);
+        if (s !== "localStream") {
+          const senders = streams[s].peerConnection.getSenders();
           const sender = senders.find((s) => {
             if (s.track) {
               return s.track.kind === audioTrack.kind;
