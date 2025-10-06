@@ -13,11 +13,6 @@ const socketConnection = (jwt) => {
         jwt,
       },
     });
-    // socket = io.connect("https://localhost:9000", {
-    //   auth: {
-    //     jwt,
-    //   },
-    // });
     return socket;
   }
 };

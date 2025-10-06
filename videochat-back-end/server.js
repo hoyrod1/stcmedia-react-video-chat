@@ -27,12 +27,7 @@ app.use(express.json());
 const expressServer = http.createServer({}, app);
 //====================================================================================//
 const io = socketio(expressServer, {
-  cors: [
-    "https://localhost:3000",
-    "https://localhost:3001",
-    "https://localhost:3002",
-    "https://www.liveebonyshow.com",
-  ],
+  cors: ["https://www.liveebonyshow.com"],
 });
 // const io = socketio(expressServer);
 //====================================================================================//
