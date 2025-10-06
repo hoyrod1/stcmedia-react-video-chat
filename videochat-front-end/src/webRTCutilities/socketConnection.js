@@ -8,11 +8,16 @@ const socketConnection = (jwt) => {
     return socket;
   } else {
     // Else connect
-    socket = io.connect("https://localhost:9000", {
+    socket = io.connect("https://api.liveebonyshow.com", {
       auth: {
         jwt,
       },
     });
+    // socket = io.connect("https://localhost:9000", {
+    //   auth: {
+    //     jwt,
+    //   },
+    // });
     return socket;
   }
 };

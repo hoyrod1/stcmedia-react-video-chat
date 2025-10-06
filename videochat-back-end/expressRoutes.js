@@ -40,10 +40,6 @@ const professionalAppointments = require("./professionalAppointments");
 //     clientName: "Mike Williams",
 //   },
 // ];
-// https://localhost:3000/join-video?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3Mjk0Nzc0fQ.rpUmXU5h0O9YTswusdSlFMcP40AZDlK8FornMnO4Zsc
-
-// https://localhost:3000/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3Njk4NjYyfQ.Qs04C9rMBHWQSGhsAsY94UU2LhurIvd0xTcbtAXWX3U
-
 //--------------------------------------------------------------------//
 app.set("professionalAppointments", professionalAppointments);
 //--------------------------------------------------------------------//
@@ -62,7 +58,7 @@ app.get("/user-link", (req, res) => {
 
   // personal data needs to be encoded for the url //
   const token = jwt.sign(apptData, secretLink);
-  res.send(`https://localhost:3000/join-video?token=${token}`);
+  res.send(`https://www.liveebonyshow.com/join-video?token=${token}`);
   // Test response json output //
   // res.json("This is a test route");
 });
@@ -93,7 +89,7 @@ app.get("/pro-link", (req, res) => {
   // personal data needs to be encoded for the url //
   const token = jwt.sign(userData, secretLink);
   res.send(
-    `<a href="https://localhost:3000/dashboard?token=${token}" target="_blank">Link Here</a>`
+    `<a href="https://www.liveebonyshow.com/dashboard?token=${token}" target="_blank">Link Here</a>`
   );
 });
 //---------------------------------------------------------------------//

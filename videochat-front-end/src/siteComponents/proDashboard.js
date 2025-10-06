@@ -15,7 +15,7 @@ const ProDashboard = () => {
   const [apptInfo, setApptInfo] = useState([]);
   const dispatch = useDispatch();
   //------------------------------------------------------------------------//
-  // https://localhost:3000/dashboard?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IlJvZG5leSBTdC4gQ2xvdWQiLCJwcm9JZCI6MTIzNCwiaWF0IjoxNzU3ODAxMTI3fQ.f9rI7xD3EudgecpDwD5xqSOg3UFKikKhQuelXiZnSxo
+
   //------------------------------------------------------------------------//
   useEffect(() => {
     // "get" THE "token" VARIABLE FROM THE QUERY STRING
