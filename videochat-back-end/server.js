@@ -2,6 +2,7 @@
 const fs = require("fs");
 //====================================================================================//
 const https = require("https");
+const http = require("http");
 //====================================================================================//
 const express = require("express");
 //====================================================================================//
@@ -17,15 +18,21 @@ app.use(express.static(__dirname + "/public"));
 // This will allow the app to parse json in the body with the body parser //
 app.use(express.json());
 //====================================================================================//
-// MADE KEY AND CERT TO RUN HTTPS //
-const key = fs.readFileSync("./certs/cert.key");
-const cert = fs.readFileSync("./certs/cert.crt");
+// MADE KEY AND CERT TO RUN HTTPS FOR LOCAL DEELOPEMENT //
+// const key = fs.readFileSync("./certs/cert.key");
+// const cert = fs.readFileSync("./certs/cert.crt");
 //====================================================================================//
-// WHEN USING HTTPS //
-const expressServer = https.createServer({ key, cert }, app);
+// WHEN USING HTTPS FOR LOCAL DEELOPEMENT //
+// const expressServer = https.createServer({ key, cert }, app);
+const expressServer = http.createServer({}, app);
 //====================================================================================//
 const io = socketio(expressServer, {
-  cors: ["https://localhost:3000", "https://localhost:3001", "https://localhost:3002"],
+  cors: [
+    "https://localhost:3000",
+    "https://localhost:3001",
+    "https://localhost:3002",
+    "https://www.liveebonyshow.com",
+  ],
 });
 // const io = socketio(expressServer);
 //====================================================================================//
