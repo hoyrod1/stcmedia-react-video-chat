@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const CallInfo = ({ apptInfo }) => {
   const [momentText, setMomentText] = useState(moment(apptInfo.apptDate).fromNow());
-  console.log(apptInfo);
+  // console.log(apptInfo);
   useEffect(() => {
     const timeInterval = setInterval(() => {
       setMomentText(moment(apptInfo.apptDate).fromNow());

@@ -70,14 +70,14 @@ const ProMainVideoPage = () => {
       // "get" THE "uuid" VARIABLE FROM THE QUERY STRING
       const uuid = searchParams.get("uuid");
       const icaCandidates = await socket.emitWithAck("getIce", uuid, "professional");
-      console.log("iceCandidate Recieved");
-      console.log(icaCandidates);
+      // console.log("iceCandidate Recieved");
+      // console.log(icaCandidates);
       icaCandidates.forEach((iceC) => {
         for (const s in streams) {
           if (s !== "localStream") {
             const pc = streams[s].peerConnection;
             pc.addIceCandidate(iceC);
-            console.log("=============== Added Ice Candidates ===============");
+            // console.log("=============== Added Ice Candidates ===============");
           }
         }
       });
@@ -128,7 +128,7 @@ const ProMainVideoPage = () => {
           // Since this is the answering client, the answer is the localDescription
           await pc.setLocalDescription(answer);
           // console.log("================= 6 ================");
-          console.log(pc.signalingState); // Should be have local answer
+          // console.log(pc.signalingState); // Should be have local answer
           dispatch(updateCallStatus("haveCreatedAnswer", true));
           dispatch(updateCallStatus("answer", answer));
           // Emit the answer to the server
@@ -165,7 +165,7 @@ const ProMainVideoPage = () => {
       const resp = await axios.post("https://api.liveebonyshow.com/validate-link", {
         token,
       });
-      console.log(resp.data);
+      // console.log(resp.data);
       setApptInfo(resp.data);
     };
     fetchDecodedToken();
@@ -189,7 +189,7 @@ const ProMainVideoPage = () => {
       if (s !== "localStream") {
         const pc = streamsRef.current[s].peerConnection;
         pc.addIceCandidate(iceC);
-        console.log("Added an iceCandidate to existing page", pc);
+        // console.log("Added an iceCandidate to existing page", pc);
       }
     }
   };

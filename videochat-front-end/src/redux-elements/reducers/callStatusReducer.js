@@ -12,14 +12,14 @@ const initState = {
 export default (state = initState, action) => {
   if (action.type === "UPDATE_CALL_STATUS") {
     const copyState = { ...state };
-    console.log(action);
+    // console.log(action);
     copyState[action.payload.prop] = action.payload.value;
     // console.log(copyState.video);
     // console.log(copyState.audio);
     return copyState;
   } else if (action.type === "LOGOUT_ACTION" || action.type === "NEW_VERSION") {
-    console.log(initState.video);
-    console.log(initState.audio);
+    // console.log(initState.video);
+    // console.log(initState.audio);
     return initState;
   } else {
     return state;

@@ -49,21 +49,21 @@ io.on("connection", (socket) => {
     return;
   }
   //========================================================//
-  console.log("============ Top decodedData 1 ===========");
-  console.log(decodedData);
-  console.log("============ Bottom decodedData 1 ===========");
+  // console.log("============ Top decodedData 1 ===========");
+  // console.log(decodedData);
+  // console.log("============ Bottom decodedData 1 ===========");
   //========================================================//
   //== "fullName" was changed to "professionalsFullName" ==//
   //============ "proId" was changed to "uuid" ============//
   // const { fullName, proId } = decodedData; //
   //========================================================//
   const { professionalsFullName, uuid } = decodedData;
-  console.log("============ Top fullName 1 ===========");
-  console.log(professionalsFullName);
-  console.log("============ Bottom fullName 1 ===========");
-  console.log("============ Top proId 1 ===========");
-  console.log(uuid);
-  console.log("============ Bottom proId 1 ===========");
+  // console.log("============ Top fullName 1 ===========");
+  // console.log(professionalsFullName);
+  // console.log("============ Bottom fullName 1 ===========");
+  // console.log("============ Top proId 1 ===========");
+  // console.log(uuid);
+  // console.log("============ Bottom proId 1 ===========");
   //========================================================//
 
   //========================================================//
@@ -88,9 +88,9 @@ io.on("connection", (socket) => {
     // Send the apptData to the professional
     // console.log(connectedProfessionals);
     const professionalAppointments = app.get("professionalAppointments");
-    console.log("============ Top decodedData 2 ===========");
-    console.log(decodedData);
-    console.log("============ Bottom decodedData 2 ===========");
+    // console.log("============ Top decodedData 2 ===========");
+    // console.log(decodedData);
+    // console.log("============ Bottom decodedData 2 ===========");
     // console.log(professionalAppointments[0].professionalsFullName);
     // console.log(fullName);
     socket.emit(
@@ -113,15 +113,15 @@ io.on("connection", (socket) => {
 
   //========================================================//
   socket.on("newOffer", ({ offer, apptInfo }) => {
-    console.log("=============== offer Top ===============");
-    console.log(offer);
-    console.log("=============== offer Bottom ===============");
+    // console.log("=============== offer Top ===============");
+    // console.log(offer);
+    // console.log("=============== offer Bottom ===============");
     // offer = sdp/type, apptInfo has the uuid
     // that can added to the allKnownOffers object
     // so the professional can find exactly the right allKnownOffers
-    console.log("=============== apptInfo Top ===============");
-    console.log(apptInfo);
-    console.log("=============== apptInfo Bottom ===============");
+    // console.log("=============== apptInfo Top ===============");
+    // console.log(apptInfo);
+    // console.log("=============== apptInfo Bottom ===============");
     allKnownOffers[apptInfo.uuid] = {
       ...apptInfo,
       offer,

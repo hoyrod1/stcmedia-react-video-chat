@@ -36,7 +36,7 @@ const MainVideoPage = () => {
       };
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        console.log(stream);
+        // console.log(stream);
         dispatch(updateCallStatus("haveMedia", true)); // Update the call status
         // Dispatch will send this function to the redux dispatcher so all reducers are notified
         // We send the 2 arguments the "who" and the "stream"
@@ -82,7 +82,7 @@ const MainVideoPage = () => {
         // console.log(s);
         if (s !== "localStream") {
           try {
-            console.log(streams);
+            // console.log(streams);
             const pc = streams[s].peerConnection;
             const offer = await pc.createOffer();
             // console.log(offer);
@@ -129,8 +129,8 @@ const MainVideoPage = () => {
         if (s !== "localStream") {
           const pc = streams[s].peerConnection;
           await pc.setRemoteDescription(callStatus.answer);
-          console.log(pc.signalingState);
-          console.log("Answer Added");
+          // console.log(pc.signalingState);
+          // console.log("Answer Added");
         }
       }
     };
@@ -153,7 +153,7 @@ const MainVideoPage = () => {
       const resp = await axios.post("https://api.liveebonyshow.com/validate-link", {
         token,
       });
-      console.log(resp.data);
+      // console.log(resp.data);
       setApptInfo(resp.data);
       uuidRef.current = resp.data.uuid;
     };

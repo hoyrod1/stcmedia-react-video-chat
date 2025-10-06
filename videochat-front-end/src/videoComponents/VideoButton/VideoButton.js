@@ -72,7 +72,7 @@ const VideoButton = ({ smallFeedEl }) => {
     for (const s in streams) {
       if (s !== "localStream") {
         const senders = streams[s].peerConnection.getSenders();
-        console.log(senders);
+        // console.log(senders);
         const sender = senders.find((s) => {
           if (s.track) {
             return s.track.kind === videoTrack.kind;

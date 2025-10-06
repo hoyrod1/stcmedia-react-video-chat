@@ -29,7 +29,7 @@ const ProDashboard = () => {
   // console.log(apptInfo);
   //------------------------------------------------------------------------//
   const joinCall = (appt) => {
-    console.log(appt);
+    // console.log(appt);
     const token = searchParams.get("token");
     // console.log(token);
     // Navigate to /join-video-pro

@@ -126,7 +126,7 @@ io.on("connection", (socket) => {
     }
   }
   //========================================================//
-  console.log(connectedProfessionals);
+  // console.log(connectedProfessionals);
   //=====================================================================================//
 
   //=====================================================================================//
@@ -215,7 +215,7 @@ io.on("connection", (socket) => {
     // console.log(iceC);
     // console.log("=============== uuid ===============");
     // console.log(uuid);
-    console.log("==============================", who);
+    // console.log("==============================", who);
     const offerToUpdate = allKnownOffers[uuid];
     if (offerToUpdate) {
       if (who === "client") {
